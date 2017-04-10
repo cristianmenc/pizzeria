@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="638.0" style="-fx-background-color: yellow;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pizzeria.FXMLDocumentController">
+   <children>
+      <ListView layoutX="29.0" layoutY="312.0" prefHeight="195.0" prefWidth="581.0" />
+      <Accordion fx:id="pestañas" layoutX="36.0" layoutY="21.0" prefHeight="207.0" prefWidth="567.0" stylesheets="@style.css">
+        <panes>
+          <TitledPane fx:id="masa" animated="false" text="Masa">
+            <content>
+              <AnchorPane fx:id="fondoMasa" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="normal" layoutX="41.0" layoutY="22.0" mnemonicParsing="false" onAction="#seleccionarMasa" text="Normal">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tipoMasa" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="integral" layoutX="42.0" layoutY="68.0" mnemonicParsing="false" onAction="#seleccionarMasa" text="Integral" toggleGroup="$tipoMasa" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane fx:id="tipoDePizza" animated="false" text="Tipo de Pizza">
+            <content>
+              <AnchorPane fx:id="fondoPizza" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="tipoPizza" layoutX="25.0" layoutY="28.0" onAction="#seleccionarPizza" prefWidth="150.0" promptText="Tipo Pizza" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane fx:id="ingredientesPizza" animated="false" text="Ingredientes Extra">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="ingredientesExtra" layoutX="-2.0" onMouseClicked="#seleccionarIngredientes" prefHeight="106.0" prefWidth="567.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+            <TitledPane fx:id="tamaño" animated="false" text="Tamaño">
+               <content>
+                  <AnchorPane fx:id="fondoTamaño" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="tamañoPizza" layoutX="47.0" layoutY="41.0" onAction="#seleccionarTamaño" prefWidth="150.0" promptText="Tamaño Pizza" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+      <Label layoutX="29.0" layoutY="312.0" text="Pedido">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="105.0" layoutY="337.0" text="Masa" />
+      <Label layoutX="106.0" layoutY="365.0" text="Tipo de Pizza" />
+      <Label layoutX="106.0" layoutY="393.0" text="Ingredientes Extra" />
+      <Label layoutX="105.0" layoutY="421.0" text="Tamaño" />
+      <Label layoutX="105.0" layoutY="463.0" text="Precio TOTAL" />
+      <Label fx:id="precioMasa" layoutX="506.0" layoutY="337.0" text="0" />
+      <Label fx:id="precioTipoPizza" layoutX="506.0" layoutY="365.0" text="0" />
+      <Label fx:id="precioIngredientes" layoutX="506.0" layoutY="393.0" text="0" />
+      <Label fx:id="precioTamaño" layoutX="506.0" layoutY="421.0" text="0" />
+      <Label fx:id="precioTotal" layoutX="506.0" layoutY="463.0" text="0" />
+      <Label fx:id="hMasa" layoutX="291.0" layoutY="337.0" text="ninguna masa" />
+      <Label fx:id="hTipoPizza" layoutX="291.0" layoutY="365.0" text="ningun tipo pizza" />
+      <Label fx:id="hIngrediente" layoutX="291.0" layoutY="393.0" text="ningun ingrediente extra" />
+      <Label fx:id="hTamaño" layoutX="291.0" layoutY="421.0" text="ningun tamaño" />
+      <Button fx:id="reset" layoutX="433.0" layoutY="242.0" mnemonicParsing="false" onAction="#resetearPedido" prefHeight="52.0" prefWidth="158.0" text="Resetear pedido">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="ticket" layoutX="292.0" layoutY="242.0" mnemonicParsing="false" onAction="#hacerTicket" prefHeight="52.0" prefWidth="143.0" text="Imprimir ticket">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
